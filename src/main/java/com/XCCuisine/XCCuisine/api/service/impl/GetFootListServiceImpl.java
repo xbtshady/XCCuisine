@@ -1,8 +1,8 @@
-package com.XCCuisine.XCCuisine.service.impl;
+package com.XCCuisine.XCCuisine.api.service.impl;
 
-import com.XCCuisine.XCCuisine.dao.FoodMapper;
-import com.XCCuisine.XCCuisine.po.Food;
-import com.XCCuisine.XCCuisine.service.IGetFootListService;
+import com.XCCuisine.XCCuisine.api.dao.FoodMapper;
+import com.XCCuisine.XCCuisine.api.dao.po.Food;
+import com.XCCuisine.XCCuisine.api.service.IGetFootListService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

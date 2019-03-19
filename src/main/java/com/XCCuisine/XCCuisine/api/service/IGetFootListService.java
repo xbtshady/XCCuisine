@@ -1,6 +1,6 @@
-package com.XCCuisine.XCCuisine.service;
+package com.XCCuisine.XCCuisine.api.service;
 
-import com.XCCuisine.XCCuisine.po.Food;
+import com.XCCuisine.XCCuisine.api.dao.po.Food;
 
 import java.util.List;
 

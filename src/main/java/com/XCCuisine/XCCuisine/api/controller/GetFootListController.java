@@ -1,7 +1,7 @@
-package com.XCCuisine.XCCuisine.controller;
+package com.XCCuisine.XCCuisine.api.controller;
 
-import com.XCCuisine.XCCuisine.po.Food;
-import com.XCCuisine.XCCuisine.service.IGetFootListService;
+import com.XCCuisine.XCCuisine.api.dao.po.Food;
+import com.XCCuisine.XCCuisine.api.service.IGetFootListService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
