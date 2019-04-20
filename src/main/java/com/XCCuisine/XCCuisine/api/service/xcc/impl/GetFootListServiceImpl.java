@@ -1,8 +1,8 @@
-package com.XCCuisine.XCCuisine.api.service.impl;
+package com.XCCuisine.XCCuisine.api.service.xcc.impl;
 
 import com.XCCuisine.XCCuisine.api.dao.FoodMapper;
 import com.XCCuisine.XCCuisine.api.dao.po.Food;
-import com.XCCuisine.XCCuisine.api.service.IGetFootListService;
+import com.XCCuisine.XCCuisine.api.service.xcc.IGetFootListService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,7 +14,7 @@ public class GetFootListServiceImpl implements IGetFootListService {
     @Resource
     FoodMapper foodMapper;
     @Override
-    public List<Food> getFootListService() {
+    public List<Food> getFootList() {
         List<Food> result = new ArrayList<>();
 
         result.add(foodMapper.selectByPrimaryKey(1));

@@ -1,7 +1,7 @@
-package com.XCCuisine.XCCuisine.api.controller;
+package com.XCCuisine.XCCuisine.api.controller.xcc;
 
 import com.XCCuisine.XCCuisine.api.dao.po.Food;
-import com.XCCuisine.XCCuisine.api.service.IGetFootListService;
+import com.XCCuisine.XCCuisine.api.service.xcc.IGetFootListService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/api/xcc")
 @Controller
 public class GetFootListController {
 
@@ -27,7 +27,7 @@ public class GetFootListController {
     @RequestMapping(value = "/getFootList", method = {RequestMethod.GET})
     @ResponseBody
     public List<Food> getFootList() throws Exception {
-        return getFootListService.getFootListService();
+        return getFootListService.getFootList();
     }
 
 }
