@@ -1,5 +1,6 @@
 package com.XCCuisine.XCCuisine.security;
 
+import com.XCCuisine.XCCuisine.api.dao.UserMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,16 +9,19 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+import javax.annotation.Resource;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
         http
                 .authorizeRequests()
                 .antMatchers("/index").permitAll()//访问index.html不要权限验证
@@ -33,13 +37,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
-        PasswordEncoder encoder =
-                PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        return new UserDetailsService() {
+            @Resource
+            UserMapper userMapper;
 
-        UserDetails user = User.withUsername("username")
-                .password(encoder.encode("password"))
-                .roles("USER").build();
+            @Override
+            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+                PasswordEncoder encoder =
+                        PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
-        return new InMemoryUserDetailsManager(user);
+                UserDetails user = User.withUsername(username)
+                        .password(encoder.encode(userMapper.selectByUserName(username).getPassword()))
+                        .roles("USER").build();
+
+                return user;
+            }
+        };
     }
 }
