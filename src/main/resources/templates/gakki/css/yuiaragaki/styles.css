@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{margin:0; padding:0; background:#ffffff;}
+
+/*float解除*/
+.clear{clear:both;}
+.clear hr{display:none;}
+
+/*-------------------------------------------共有ヘッダー　リンクとその背景、ボーターの色指定*/
+#all-header{padding:0; margin:0; height:55px; background:#FFFFFF; /*カスタマイズ部分→*/border-bottom:#e7828f solid 7px;}
+
+#all-header-contents{margin:0 auto 0 auto; height:53px; padding:5px 0 0 0; /*カスタマイズ部分→*/width:1024px;}
+
+#all-header-contents h1{margin:0; padding:0; float:left;}
+#all-header-contents h1 a{padding:0;}
+
+#all-header-contents p{margin:0 0 0 10px; padding:0; float:left;}
+
+#all-header-contents ul{margin:13px 0 0 0; padding:0; float:right;}
+#all-header-contents li{float:left; margin:0 10px 0 0; padding:0; list-style:none;}
+
+#all-header-contents a{padding:5px 10px 5px 10px; vertical-align:middle; display:block; text-align:center; font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; font-size:12px;
+ /*カスタマイズ部分→*/background:#e7828f; color:#FFFFFF; text-decoration:none;}
+#all-header-contents a:visited{/*カスタマイズ部分→*/background:#e7828f; color:#FFF;}
+#all-header-contents a:hover{/*カスタマイズ部分→*/background:#af1b61; color:#FFF;}
+
+#for-cp{}
+#for-cp a{padding:5px 10px 5px 30px !important; margin:10px 0 0 15px; background:url(/img/all/list.png) no-repeat 10px center #e7828f;}
+#for-cp a:hover{padding:5px 10px 5px 30px !important; margin:10px 0 0 15px; background:url(/img/all/list.png) no-repeat 10px center #af1b61;}
+#fanclub-add{}
+#fanclub-add a{padding:10px 10px 10px 35px !important; margin:-10px 0 0 0; background:url(/img/all/add.png) no-repeat 10px center #2baae5 !important;}
+#fanclub-add a:hover{padding:10px 10px 10px 35px !important; margin:-10px 0 0 0; background:url(/img/all/add.png) no-repeat 10px center #1a78a4 !important;}
+/*-------------------------------------------共有ヘッダー　検索部分*/
+#all-search{float:right; margin:13px 0 0 0;}
+#searchform{position: relative;}
+#keywords{width: 182px; height: 14px; background: #FFF; padding:4px; margin:0; /*カスタマイズ部分→*/border:#e7828f solid 1px; color:#FFF;}
+#searchBtn{position: absolute; top: 0;_top: 1px; left: 190px; padding:4px; text-align:center; /*カスタマイズ部分→*/background:#e7828f;}
+#searchBtn:hover{/*カスタマイズ部分→*/background:#af1b61;}
+*:first-child + html #searchBtn{top: 1px;}
+
+
+/*-------------------------------------------共有フッター　リンクとその背景、ボーターの色指定*/
+#all-footer{padding:0; margin:0; background:#FFFFFF; /*カスタマイズ部分→*/border-top:#e7828f solid 7px; height:100%; padding-bottom:20px;}
+#all-footer-contents{margin:0 auto 0 auto; padding:0; /*カスタマイズ部分→*/width:1024px;}
+
+#all-footer p{font-size:10px; font-family:Arial, Helvetica, sans-serif; margin:0; padding:0;}
+
+#all-footer-contents ul{margin:10px 0 0 0; padding:0; height:40px;}
+#all-footer-contents li{float:left; margin:0 10px 0 0; padding:0; list-style:none;}
+
+.footer-link a{padding:5px 10px 5px 10px; vertical-align:middle; display:block; text-align:center; font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; font-size:12px;
+/*カスタマイズ部分→*/background:#e7828f; color:#FFF; text-decoration:none;}
+.footer-link a:visited{/*カスタマイズ部分→*/background:#e7828f; color:#FFF;}
+.footer-link a:hover{/*カスタマイズ部分→*/background:#af1b61; color:#FFF;}
+
+
+
+/*-------------------------------------------共有フッター　タレントSNSアカウント*/
+.sns-acount li{height:30px; padding:0;}
+
+.sns-acount a{background:#FFFFFF; color:#333333; text-decoration:none;}
+.sns-acount a:visited{background:#FFF; color:#333; text-decoration:none;}
+.sns-acount a:hover{background:#FFF; color:#333333; text-decoration:underline;}
+	
+.sns-acount span{display:block; font-size:10px; font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック", "MS PGothic", sans-serif; margin:0 0 0 35px; padding:10px 0 0 0; }
+	
+.acount-twitter{background:url(/img/all/sns_btn/ico_tw.gif) no-repeat left center;}
+.acount-facebook{background:url(/img/all/sns_btn/ico_fb.gif) no-repeat left center;}
+.acount-blog{background:url(/img/all/sns_btn/ico_bl.gif) no-repeat left center;}
+.acount-mixi{background:url(/img/all/sns_btn/ico_mx.gif) no-repeat left center;}
+.acount-google{background:url(/img/all/sns_btn/ico_google.gif) no-repeat left center;}
+.acount-line{background:url(/img/all/sns_btn/ico_line.gif) no-repeat left center;}
+.acount-tumblr{background:url(/img/all/sns_btn/ico_tumblr.gif) no-repeat left center;}
+.acount-weibo{background:url(/img/all/sns_btn/ico_weibo.gif) no-repeat left center;}
+			
+
+/*-------------------------------------------共有フッター　拡散ボタン*/
+#all-footer-contents li.fc-sns{background:#FFFFFF;}
+#all-footer-contents li.fc-sns:hover{background:#FFFFFF;}
+
+.social_btn {margin:4px 10px 0 0; text-align:left; float:left;}
+
+.twitter {width: 55px; height: 21px; overflow: hidden; margin:0;}
+.facebook {width: 70px; height: 25px; overflow: hidden; margin:0;}
+.mixi {height: 21px; width: 70px; overflow: hidden; margin:0;}
+.gplusone {width: 32px; height: 21px; overflow: hidden; margin:0;}
+
+
+.all-info{width:1024px; margin:20px auto 20px auto; padding:0 0 20px 0;}
+.all-info h2{background:#000; color:#FFFFFF; padding:15px; font-size:18px; margin:0 0 15px 0;}
+.all-info h3{background:#CCC; color:#333; padding:5px 5px 5px 10px; font-size:16px; margin:20px 15px 15px 15px;}
+.all-info h4{background:#efefef; color:#333; padding:5px 5px 5px 10px; font-size:14px; margin:20px 15px 15px 15px;}
+
+.all-info p{color:#333; font-size:14px; line-height:160%; margin:0 25px 15px 25px; padding:0;}
+.all-info ul{margin:0 0 0 50px; padding:0;}
+.all-info li{margin:0 0 10px 0; padding:0; font-size:14px;}
+
+.all-info .red{color:#F00;}
+
+.formbox{margin:0 0 0 30px;}
+.formbox table{width:500px; margin:0 0 20px 0;}
+.formbox th{font-size:14px; padding:10px; text-align:left; background:#efefef; border-bottom:#CCCCCC solid 1px;}
+.formbox td{padding:10px; border-bottom:#CCCCCC solid 1px;}
