@@ -5,6 +5,7 @@ import com.XCCuisine.XCCuisine.api.dao.XWTitleMapper;
 import com.XCCuisine.XCCuisine.api.dao.po.XWTitle;
 import com.XCCuisine.XCCuisine.api.exception.ExceptionConstants;
 import com.XCCuisine.XCCuisine.api.exception.XWBusinessException;
+import com.XCCuisine.XCCuisine.api.model.xw.XWTitleService.GetXWTitleByIdIO;
 import com.XCCuisine.XCCuisine.api.model.xw.XWTitleService.GetXWTitleListServiceIO;
 import com.XCCuisine.XCCuisine.api.model.xw.XWTitleService.XWTitleServiceIO;
 import com.XCCuisine.XCCuisine.api.service.xw.IXWTitleService;
@@ -25,6 +26,16 @@ public class XWTitleService implements IXWTitleService {
         Integer index = getXWTitleListServiceIO.getIndex() == null ? 1 : getXWTitleListServiceIO.getIndex();
         Integer size = getXWTitleListServiceIO.getSize() == null ? 5 : getXWTitleListServiceIO.getSize();
         return xwTitleMapper.queryXwTitle(size * (index - 1) ,size);
+    }
+
+    @Override
+    public XWTitle getXWTitleById(GetXWTitleByIdIO getXWTitleByIdIO) throws Exception {
+        XWTitle result = xwTitleMapper.selectByPrimaryKey(getXWTitleByIdIO.getId());
+        if(result == null){
+            throw new XWBusinessException(ExceptionConstants.TITLE_NOT_FOUND_CODE,
+                    ExceptionConstants.TITLE_NOT_FOUND_MSG);
+        }
+        return result;
     }
 
     @Override

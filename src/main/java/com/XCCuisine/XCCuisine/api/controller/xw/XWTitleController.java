@@ -1,6 +1,9 @@
 package com.XCCuisine.XCCuisine.api.controller.xw;
 
 import com.XCCuisine.XCCuisine.api.dao.po.XWTitle;
+import com.XCCuisine.XCCuisine.api.exception.ExceptionConstants;
+import com.XCCuisine.XCCuisine.api.exception.XWBusinessException;
+import com.XCCuisine.XCCuisine.api.model.xw.XWTitleService.GetXWTitleByIdIO;
 import com.XCCuisine.XCCuisine.api.model.xw.XWTitleService.GetXWTitleListServiceIO;
 import com.XCCuisine.XCCuisine.api.model.xw.XWTitleService.XWTitleServiceIO;
 import com.XCCuisine.XCCuisine.api.service.xw.IXWTitleService;
@@ -22,8 +25,13 @@ public class XWTitleController {
 
 
     @RequestMapping(value = "/getXWTitleList")
-    public List<XWTitle> getFootList(@Valid @RequestBody GetXWTitleListServiceIO getXWTitleListServiceIO) throws Exception {
+    public List<XWTitle> getXWTitleList(@Valid @RequestBody GetXWTitleListServiceIO getXWTitleListServiceIO) throws Exception {
         return XWTitleService.getXWTitleList(getXWTitleListServiceIO);
+    }
+
+    @RequestMapping(value = "/getXWTitleById")
+    public XWTitle getXWTitleById(@Valid @RequestBody GetXWTitleByIdIO getXWTitleByIdIO) throws Exception {
+        return XWTitleService.getXWTitleById(getXWTitleByIdIO);
     }
 
     @RequestMapping(value = "/setXWTitle")
