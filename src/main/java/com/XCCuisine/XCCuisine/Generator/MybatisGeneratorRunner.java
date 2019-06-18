@@ -1,4 +1,4 @@
-package com.XCCuisine.XCCuisine.Generator;
+package com.XCCuisine.XCCuisine.generator;
 
 import org.mybatis.generator.api.ShellRunner;
 
