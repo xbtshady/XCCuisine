@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface XWTitleMapper {
     int deleteByPrimaryKey(Integer id);
@@ -20,6 +21,8 @@ public interface XWTitleMapper {
 
     int updateByPrimaryKey(XWTitle record);
 
-    List<XWTitle> queryXwTitle(@Param("currIndex") int currIndex, @Param("pageSize") int pageSize);
-
+    /**
+     *获取title list 关联出label
+     */
+    List<Map<String,Object>> getXwTitleList(@Param("currIndex") int currIndex, @Param("pageSize") int pageSize);
 }

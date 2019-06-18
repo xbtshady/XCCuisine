@@ -7,10 +7,11 @@ import com.XCCuisine.XCCuisine.api.model.xw.XWTitleService.XWTitleServiceIO;
 import com.XCCuisine.XCCuisine.api.model.xw.XWVO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IXWTitleService {
 
-    List<XWTitle> getXWTitleList(GetXWTitleListServiceIO getXWTitleListServiceIO)throws Exception;
+    List<Map<String,Object>> getXWTitleList(GetXWTitleListServiceIO getXWTitleListServiceIO)throws Exception;
 
     XWTitle getXWTitleById(GetXWTitleByIdIO getXWTitleByIdIO) throws Exception;
 

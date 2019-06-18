@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Map;
+
 @RequestMapping(value = "/api/xw")
 @RestController
 public class XWTitleController {
@@ -25,7 +27,7 @@ public class XWTitleController {
 
 
     @RequestMapping(value = "/getXWTitleList")
-    public List<XWTitle> getXWTitleList(@Valid @RequestBody GetXWTitleListServiceIO getXWTitleListServiceIO) throws Exception {
+    public List<Map<String,Object>> getXWTitleList(@Valid @RequestBody GetXWTitleListServiceIO getXWTitleListServiceIO) throws Exception {
         return XWTitleService.getXWTitleList(getXWTitleListServiceIO);
     }
 

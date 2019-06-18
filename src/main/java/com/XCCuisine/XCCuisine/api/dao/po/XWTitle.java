@@ -9,7 +9,7 @@ public class XWTitle {
 
     private String author;
 
-    private String label;
+
 
     private String image;
 
@@ -41,14 +41,6 @@ public class XWTitle {
 
     public void setAuthor(String author) {
         this.author = author == null ? null : author.trim();
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label == null ? null : label.trim();
     }
 
     public String getImage() {

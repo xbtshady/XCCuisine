@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class XWTitleService implements IXWTitleService {
@@ -22,10 +23,10 @@ public class XWTitleService implements IXWTitleService {
     XWTitleMapper xwTitleMapper;
 
     @Override
-    public List<XWTitle> getXWTitleList(GetXWTitleListServiceIO getXWTitleListServiceIO)throws Exception {
+    public List<Map<String,Object>> getXWTitleList(GetXWTitleListServiceIO getXWTitleListServiceIO)throws Exception {
         Integer index = getXWTitleListServiceIO.getIndex() == null ? 1 : getXWTitleListServiceIO.getIndex();
         Integer size = getXWTitleListServiceIO.getSize() == null ? 5 : getXWTitleListServiceIO.getSize();
-        return xwTitleMapper.queryXwTitle(size * (index - 1) ,size);
+        return xwTitleMapper.getXwTitleList(size * (index - 1) ,size);
     }
 
     @Override
