@@ -47,7 +47,6 @@
                     <div class="pagetitle">{{title.title}}</div>
                     <div class="date">{{title.updateTime.slice(0,16)}}</div>
                     <div class="detail">{{title.content}}</div>
-
                 </div>
             </div>
             <div id="pagetop">
@@ -74,7 +73,7 @@
 
     $(function(){
         var data = {
-            "id":19,
+            "id":getParam("id")
         };
         $.ajax({
             method:"POST",
@@ -83,10 +82,24 @@
             dataType : "json",
             data:JSON.stringify(data),
             success: function( result ) {
-                app1.titles = result
+                app1.title = result
             }
         });
     });
+
+
+    function getParam(paramName) {
+
+        paramValue = "", isFound = !1;
+
+        if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+
+            arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;
+
+            while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
+
+        }
+    }
 
 </script>
 </body>

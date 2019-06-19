@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.XCCuisine.XCCuisine.api.dao.FoodMapper">
-  <resultMap id="BaseResultMap" type="com.XCCuisine.XCCuisine.api.dao.po.Food">
+<mapper namespace="com.XCCuisine.dao.FoodMapper">
+  <resultMap id="BaseResultMap" type="com.XCCuisine.dao.po.Food">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="image" jdbcType="VARCHAR" property="image" />
@@ -23,7 +23,7 @@
     delete from food
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.XCCuisine.XCCuisine.api.dao.po.Food">
+  <insert id="insert" parameterType="com.XCCuisine.dao.po.Food">
     insert into food (id, name, image, 
       intro, detail, create_time, 
       update_time)
@@ -31,7 +31,7 @@
       #{intro,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.XCCuisine.XCCuisine.api.dao.po.Food">
+  <insert id="insertSelective" parameterType="com.XCCuisine.dao.po.Food">
     insert into food
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.XCCuisine.XCCuisine.api.dao.po.Food">
+  <update id="updateByPrimaryKeySelective" parameterType="com.XCCuisine.dao.po.Food">
     update food
     <set>
       <if test="name != null">
@@ -104,7 +104,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.XCCuisine.XCCuisine.api.dao.po.Food">
+
+  <update id="updateByPrimaryKey" parameterType="com.XCCuisine.dao.po.Food">
     update food
     set name = #{name,jdbcType=VARCHAR},
       image = #{image,jdbcType=VARCHAR},
@@ -114,4 +115,5 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
 </mapper>

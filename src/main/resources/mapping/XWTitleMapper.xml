@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.XCCuisine.XCCuisine.api.dao.XWTitleMapper">
-  <resultMap id="BaseResultMap" type="com.XCCuisine.XCCuisine.api.dao.po.XWTitle">
+<mapper namespace="com.XCCuisine.dao.XWTitleMapper">
+  <resultMap id="BaseResultMap" type="com.XCCuisine.dao.po.XWTitle">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="author" jdbcType="VARCHAR" property="author" />
@@ -23,7 +23,7 @@
     delete from xw_title
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.XCCuisine.XCCuisine.api.dao.po.XWTitle">
+  <insert id="insert" parameterType="com.XCCuisine.dao.po.XWTitle">
     insert into xw_title (id, title, author, 
        image, content,
       createTime, updateTime)
@@ -32,7 +32,7 @@
       #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
   </insert>
 
-  <insert id="insertSelective" parameterType="com.XCCuisine.XCCuisine.api.dao.po.XWTitle" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.XCCuisine.dao.po.XWTitle" useGeneratedKeys="true" keyProperty="id">
     insert into xw_title
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -82,7 +82,7 @@
     </trim>
   </insert>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.XCCuisine.XCCuisine.api.dao.po.XWTitle">
+  <update id="updateByPrimaryKeySelective" parameterType="com.XCCuisine.dao.po.XWTitle">
     update xw_title
     <set>
       <if test="title != null">
@@ -106,7 +106,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.XCCuisine.XCCuisine.api.dao.po.XWTitle">
+  <update id="updateByPrimaryKey" parameterType="com.XCCuisine.dao.po.XWTitle">
     update xw_title
     set title = #{title,jdbcType=VARCHAR},
       author = #{author,jdbcType=VARCHAR},
@@ -122,11 +122,28 @@
     <select id="getXwTitleList" resultType="java.util.HashMap">
         SELECT
         t.*,
-        GROUP_CONCAT(l.label_id) as label_id,
+        GROUP_CONCAT(l.label_id) as labelId,
         GROUP_CONCAT(l.label) as   label
         FROM (select * from xw_title limit #{currIndex,jdbcType=INTEGER} , #{pageSize,jdbcType=INTEGER}) t
         left join (SELECT  tl.title_id, tl.label_id,l.label from xw_title_label tl left join xw_label l on l.id = tl.label_id) l
         on l.title_id = t.id
         group by t.id
-</select>
+    </select>
+
+    <select id="getXwTitleById"  resultType="java.util.HashMap">
+        SELECT
+        t.*,
+        GROUP_CONCAT(l.id) as labelId,
+        GROUP_CONCAT(l.label) as   label
+        FROM
+        xw_title t
+        left join xw_title_label tl
+        on tl.title_id = t.id
+        left join xw_label l
+        on tl.label_id = l.id
+        WHERE
+        t.id = #{id,jdbcType=INTEGER}
+		group by t.id
+
+    </select>
 </mapper>
