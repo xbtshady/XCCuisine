@@ -42,15 +42,12 @@
             </div>
             <div id="main_con_wrap">
                 <div id="con_detail">
-                    <div id="pagetitle">
-                        <h3><img src="./image/title.jpg" width="220" height="28" alt="STAFF BLOG"></h3>
-                    </div>
-                    <div id="detail">
-                        <dl>
-                            <dt><div id="detail-title"></div></dt>
-                            <dd><div id="detail-content"></div></dd>
-                        </dl>
-                    </div>
+                    <div v-for="l in title.label.split(',')" class="label">{{l}}</div>
+                    <div class="clear"><hr></div>
+                    <div class="pagetitle">{{title.title}}</div>
+                    <div class="date">{{title.}}</div>
+                    <div class="detail">{{title.content}}</div>
+
                 </div>
             </div>
             <div id="pagetop">
@@ -67,6 +64,14 @@
 
 
 <script>
+    var app1 = new Vue({
+        el: '#con_detail',
+        data: {
+            title:{}
+        }
+    })
+
+
     $(function(){
         var data = {
             "id":19,
@@ -78,11 +83,12 @@
             dataType : "json",
             data:JSON.stringify(data),
             success: function( result ) {
-                    $("#detail-title").append(result.title);
-                    $("#detail-content").append(result.content);
+                    $("#pagetitle").append(result.title);
+                    $("#detail").append(result.content);
             }
         });
     });
+
 </script>
 </body>
 </html>
