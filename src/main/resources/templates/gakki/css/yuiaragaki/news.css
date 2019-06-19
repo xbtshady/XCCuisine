@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+
+#information{width:100%;}
+#information ul{margin:0; padding:0;}
+#information li{border-bottom:#666 dotted 1px; margin:0 0 10px 0; padding:5px 10px 5px 5px;min-height: 80px;}
+
+#information .information-day{font-size:12px; float:left; margin-right:5px;}
+#information .information-category{font-size:10px; padding: 1px 10px 1px 10px; text-align:center; margin:0; float:left; /*カスタマイズ部分→*/background:#e7828f; color:#FFF;margin: 0 3px 0 0; }
+
+#information .information-title{font-weight:bold; font-size:18px; font-weight:bold; margin:5px 0 0 0; width:550px;}
+	#information .information-title a{text-decoration:none; /*カスタマイズ部分→*/color:#e92e86;}
+	#information .information-title a:visited{text-decoration:none; /*カスタマイズ部分→*/color:#e92e86;}
+	#information .information-title a:hover{text-decoration:underline; /*カスタマイズ部分→*/color:#af1b61;}
+
+#information .information-txt {font-size:12px;line-height: 160%;margin: 5px 0 0 0;width: 100%;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+#information .information-txt pre {white-space: inherit;}
+#information .information-img{margin:20px 0 0 0;}
+
+#information .more{float:right;}
+	#information .more a{display:block; font-size:12px; padding: 2px 8px 0 8px; text-decoration:none; /*カスタマイズ部分→*/background:#e7828f; color:#FFF;}
+	#information .more a:visited{text-decoration:none; /*カスタマイズ部分→*/color:#FFF;}
+	#information .more a:hover{text-decoration:none; /*カスタマイズ部分→*/ background:#af1b61; color:#FFF;}
+
+#information .clear{clear:both;}
+#information .clear hr{display:none;}
+
+#information-nav{margin:0 0 20px 0;}
+#information-nav ul{padding:0; /*カスタマイズ部分→*/margin:0px;}
+#information-nav li{float:left; margin:0 3px 0 0; /*カスタマイズ部分→*/width:77px; overflow:hidden;}
+#information-nav .list-sp {width: auto;}
+#information-nav li:last-child{margin:0;}
+	#information-nav a {text-align:center; display:block; font-size:10px; padding: 5px 0 4px 0; text-decoration:none; /*カスタマイズ部分→*/background:#dedede; color:#e7828f !important;}
+	#information-nav a:visited{text-decoration:none; /*カスタマイズ部分→*/}
+	#information-nav a:hover ,#information-nav .current a {text-decoration:none; /*カスタマイズ部分→*/ background:#e7828f; color:#ffffff !important;}
+
+#information-nav .clear{clear:both;}
+#information-nav .clear hr{display:none;}
+
+
+.pageNation{text-align:center; margin:20px 0 0 0;}
+.pageNation ul{margin:0; padding:0; float:right;}
+.pageNation li {float: left; margin-right: 5px; font-weight: bold; padding: 3px 5px; color: rgb(144, 144, 144);}
+.pageNation li.current {background:#333333; color:#FFF;}
+.pageNation .clear{clear:both;}
+.pageNation .clear hr{display:none;}

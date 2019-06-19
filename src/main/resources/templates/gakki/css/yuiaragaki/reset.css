@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*==================================================
+	
+  ● Title //CSS名
+  ○ reset.css
+  
+  ● Created Date in CSS //CSS作成日
+  ○ 2012.06.25
+  
+  ● Last Update //最終更新日
+  ○ 2010.04.13
+  
+  ● Created by //製作元
+  ○ ROM SHARING.INC
+  
+  ● a Table of Contents //目次
+  ○ reset css
+ 
+==================================================*/
+
+/*--------------------------------------------------
+  ○ reset css
+--------------------------------------------------*/
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+fieldset,img { 
+	border:0;
+}
+
+address,caption,cite,code,dfn,em,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+
+ul {
+	list-style:none;
+}
+
+caption,th {
+	text-align:left;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+
+q:before,q:after {
+	content:'';
+}
+
+abbr,acronym { border:0;
+}
+
+br{
+	letter-spacing:0;
+}
+
+img{
+	border:none;
+}
+
+body{
+	width:100%;
+	min-width:1000px;
+	height:auto;
+	text-align:left;
+	margin:0 auto;
+	line-height:1.5;
+	font-size:12px;
+	border:none;
+	color:#302722;
+}
+
+
+.alphafilter{
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/yuiaragaki/common.css">
+	<link rel="stylesheet" type="text/css" href="./css/yuiaragaki/top.css">
+	<link rel="stylesheet" type="text/css" href="./css/yuiaragaki/bnr.css">
+	<link rel="stylesheet" type="text/css" href="./css/yuiaragaki/styles.css">
+	<link rel="stylesheet" type="text/css" href="./css/yuiaragaki/news.css?1461744689">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="all-header">
+		<div id="all-header-contents">
+		<h1><a href="xxx.com"><img src="./image/txt_name.jpg" alt="レプロエンタテインメント" width="210" height="50"></a></h1>
+		<div class="clear"><hr></div>
+		</div>
+	</div>
+	
+	<div id="all_wrap">
+		<div id="contents_wrap">
+			<div id="left_con">
+				<div id="lcon_wrap">
+					<div id="gnav">
+						<ul>
+							<li> <a href="/#1"> <img src="./image/nav_info_off.png" width="145" height="39" alt="INFORMATION" class="alphafilter"></a> </li>
+							<li> <a href="/#1"> <img src="./image/nav_info_off.png" width="145" height="39" alt="INFORMATION" class="alphafilter"></a> </li>
+							<li> <a href="/#1"> <img src="./image/nav_info_off.png" width="145" height="39" alt="INFORMATION" class="alphafilter"></a> </li>
+							<li> <a href="/#1"> <img src="./image/nav_info_off.png" width="145" height="39" alt="INFORMATION" class="alphafilter"></a> </li>
+							<li> <a href="/#1"> <img src="./image/nav_info_off.png" width="145" height="39" alt="INFORMATION" class="alphafilter"></a> </li>
+							<li> <a href="/#1"> <img src="./image/nav_info_off.png" width="145" height="39" alt="INFORMATION" class="alphafilter"></a> </li>
+						</ul>
+					</div>		
+				</div>				
+			</div>	
+			<div id="main_con">
+				<div id="main_top_area">
+					<h1><a href="/"><img src="./image/mini_logo.jpg" width="143" height="92" alt="yui`s Room"></a></h1>
+					<h2><a href="/"><img src="./image/fcname.jpg" width="178" height="13" alt="新垣結衣オフィシャルファンクラブ"></a></h2>
+				</div>	
+				<div id="main_con_wrap">
+					<div id="con_detail">
+						<div id="pagetitle">
+							<h3><img src="./image/title.jpg" width="220" height="28" alt="STAFF BLOG"></h3>
+						</div>
+						<div id="detail">
+							<div id="information-nav">
+								<ul>
+									<li class="current"><a href="/news/">ALL</a></li>
+									<li v-for="item in labels"><a >{{item}}</a></li>
+								</ul>
+								<div class="clear"><hr></div>
+							</div>	
+							<div id="information">
+								<ul>
+									<li v-for="title in titles">
+										<div class="information-day">{{title.updateTime.slice(0,16)}}</div>
+										<div class="information-category" v-for="l in title.label.split(',')" >{{l}}</div>
+										<div class="clear"><hr></div>
+										<div class="information-title"><a>{{title.title}}</a></div>
+										<div class="information-txt">{{title.content}}</div>
+									</li>
+								</ul>
+							</div>	
+							<div class="pageNation">
+							<ul>
+							<li>&lt;&lt;</li>
+							<li>&lt;</li>
+							<li class="current">1</li>
+							<li v-for="num in pageNum">{{num}}</li>
+							<li>&gt;</li>
+							<li>&gt;&gt;</li>
+							</ul>
+							<div class="clear"><hr></div>
+							</div>						
+						</div>						
+					</div>						
+				</div>	
+				<div id="pagetop">
+					<a href="#top"><img src="./image/page_top_off.jpg" width="83" height="13" alt="ページトップへ"></a>
+				</div>	
+
+			</div>				
+		</div>
+	</div>
+	
+	<div id="all-foolter">
+	
+	</div>
+
+	
+	<script>
+
+		var app1 = new Vue({
+			el: '#con_detail',
+			data: {
+				titles:[],
+				labels:[],
+				pageNum:[2,3,4,5]
+			}
+		})
+		$(function(){
+			var data = {
+					"index":1,
+					"size":6
+				};
+			$.ajax({
+			  method:"POST",
+			  url: "http://www.xcwf.fun/Xcc/api/xw/getXWTitleList",
+			  contentType : 'application/json',
+			  dataType : "json",  
+			  data:JSON.stringify(data),
+			  success: function( result ) {
+				  app1.titles = result;
+			  }
+			});
+		 
+		});
+
+
+
+	</script>
+</body>
+</html>
