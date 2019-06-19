@@ -22,7 +22,17 @@ public interface XWTitleMapper {
     int updateByPrimaryKey(XWTitle record);
 
     /**
-     *获取title list 关联出label
+     * 获取title list 关联出label
+     * @param currIndex
+     * @param pageSize
+     * @return
      */
     List<Map<String,Object>> getXwTitleList(@Param("currIndex") int currIndex, @Param("pageSize") int pageSize);
+
+    /**
+     * 根据id获取title 关联出label
+     * @param id
+     * @return
+     */
+    Map<String,Object> getXwTitleById(@Param("id") Integer id);
 }

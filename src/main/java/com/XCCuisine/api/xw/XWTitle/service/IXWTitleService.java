@@ -13,7 +13,7 @@ public interface IXWTitleService {
 
     List<Map<String,Object>> getXWTitleList(GetXWTitleListServiceIO getXWTitleListServiceIO)throws Exception;
 
-    XWTitle getXWTitleById(GetXWTitleByIdIO getXWTitleByIdIO) throws Exception;
+    Map<String,Object> getXWTitleById(GetXWTitleByIdIO getXWTitleByIdIO) throws Exception;
 
     XWVO setXWTitle(XWTitleServiceIO xwTitleServiceIO)throws Exception;
 

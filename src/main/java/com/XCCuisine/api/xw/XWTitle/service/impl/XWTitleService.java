@@ -42,11 +42,14 @@ public class XWTitleService implements IXWTitleService {
     }
 
     @Override
-    public XWTitle getXWTitleById(GetXWTitleByIdIO getXWTitleByIdIO) throws Exception {
-        XWTitle result = xwTitleMapper.selectByPrimaryKey(getXWTitleByIdIO.getId());
+    public Map<String,Object> getXWTitleById(GetXWTitleByIdIO getXWTitleByIdIO) throws Exception {
+        Map<String,Object> result = xwTitleMapper.getXwTitleById(getXWTitleByIdIO.getId());
         if(result == null){
             throw new XWBusinessException(ExceptionConstants.TITLE_NOT_FOUND_CODE,
                     ExceptionConstants.TITLE_NOT_FOUND_MSG);
+        }else {
+            result.put("updateTime", DateUntil.formatMs((Date) result.get("updateTime")));
+            result.put("createTime", DateUntil.formatMs((Date) result.get("createTime")));
         }
         return result;
     }

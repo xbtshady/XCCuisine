@@ -1,5 +1,6 @@
 package com.XCCuisine.api.xw.XWTitle.controller;
 
+import com.XCCuisine.api.XWVO;
 import com.XCCuisine.dao.po.XWTitle;
 import com.XCCuisine.api.xw.XWTitle.model.io.GetXWTitleByIdIO;
 import com.XCCuisine.api.xw.XWTitle.model.io.GetXWTitleListServiceIO;
@@ -29,7 +30,7 @@ public class XWTitleController {
     }
 
     @RequestMapping(value = "/getXWTitleById")
-    public XWTitle getXWTitleById(@Valid @RequestBody GetXWTitleByIdIO getXWTitleByIdIO) throws Exception {
+    public Map<String,Object> getXWTitleById(@Valid @RequestBody GetXWTitleByIdIO getXWTitleByIdIO) throws Exception {
         return XWTitleService.getXWTitleById(getXWTitleByIdIO);
     }
 
