@@ -14,4 +14,15 @@ public class DateUntil {
         }
         return ret;
     }
+
+    public static String formatMs(Date date,String format){
+        SimpleDateFormat s = new SimpleDateFormat(format);
+        String ret = "";
+        try {
+            ret = s.format(date);
+        } catch (Exception e) {
+            ret = "";
+        }
+        return ret;
+    }
 }
